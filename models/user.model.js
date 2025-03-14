@@ -24,7 +24,7 @@ const userSchema=new mongoose.Schema({
     businessDetails:{
         details:String,
         website:String,
-        products:{type:[String],default:[]}
+        products:{type:[String]}
     },
 })
 userSchema.pre("save",async function(next){

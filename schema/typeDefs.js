@@ -37,11 +37,19 @@ const typeDefs = `#graphql
         products:[String!]
     }
     type Query{
-        users:[User]
+        users:[User],
+        me:User,
+        myBusiness:BusinessDetails
+        anyUser(id:ID!):User
     }
     type Mutation{
         signup(email:String!,password:String!):Auth
         login(email:String!,password:String!):Auth
+        setRole(id:ID!,role:Role!):User
+        editMyDetails(userDetails:UserInput):User
+        editMyBusiness(businessDetails:BusinessInput):BusinessDetails
+        editAnyUser(id:ID!,userDetails:UserInput,businessDetails:BusinessInput):User
+        deleteAnyUser(id:ID!):User
     }
 `
 
